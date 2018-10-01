@@ -1,0 +1,26 @@
+{
+  "app": {
+    "name": "Tag Instructor",
+    "short_description": "Показывает ваши сообщения когда находит тег",
+    "long_description": "**Tag Instructor App** shows custom messages depending on any tag.\n\n**Tag Instructor App** enables Zendesk Administrators to define which messages will be visible depending whether single or many tags are presented on\n\n- Current Agent\n- User\n- Organization\n- Ticket\n- Ticket Requester\n- Ticket Assignee\n- Ticket Organization\n- Ticket CCs\n\n![](https://cl.ly/dce914f3c0a4/Image%202018-10-01%20at%204.49.53%20PM.png)\n\n![](https://cl.ly/103f2a2cb8a3/Image%202018-10-01%20at%204.50.18%20PM.png)\n\n**Tag Instructor App** will respond to tags changes on the fly. For example, if a Macro applied on a ticket injects a tag the **Tag Instructor App** will respond to this immediatelly.\n\n**Tag Instructor App**\n\n- enables Zendesk Administrators to build complex workflows;\n- helps Agents to be efficient by being informed in the real time;\n- allow delivering better service to the customers.\n\nInstall **Tag Instructor App** now to boost your Agents productivity!\n",
+    "installation_instructions": "### Step 1\n\nInstall the App. You need to be Zendesk Administrator to install the App.\n\n### Step 2\n\nConfigure the **JSON object for tag and message configuration** as per example below:\n\n`{`\n`\"agent\":[], // for Current Agent`\n`\"user\":[], // for user page`\n`\"organization\":[], // for org page`\n`\"ticket\":[ // for ticket page`\n`{`\n`\"tags\": [ \"sla_standard\", \"priority_changed\" ],`\n`\"operator\": \"any\",`\n`\"message\": \"Your HTML or text\",`\n`\"kind\": \"notice\",`\n`}],`\n`\"ticket_requester\":[], // for ticket requester`\n`\"ticket_assignee\":[], // for ticket assignee`\n`\"ticket_organization\":[], // for ticket org`\n`\"ticket_collaborators\":[] // for ticket CCs`\n`}`\n\nEvery entry can have the following attributes:\n\n`{`\n`\"tags\": [ \"test_tag1\", \"test_tag2\" ],`\n`\"operator\": \"all\", // \"any\", \"all\"`\n`if \"any\" at least one tag will be enough`\n`if \"all\" all tags must be presented`\n`\"message\": \"Your HTML or text\",`\n`\"kind\": \"notice\",`\n`// \"notice\" (green), \"alert\" (yellow), \"error\"(red)`\n`\"css\": \"background:orange;color:white;\"`\n`// optional. If supplied will overwrite the standard`\n`styling from the \"kind\" key`\n`}`\n\n### Step 3\n\nConfigure basic App behaviour:\n\n- **Show popup notification** - If selected the App will show little popup on top right side of the screen giving Agent a summary of the messages\n- **Hide disclaimer** - If selected the App will hide the little question mark on top right side of the App screen\n- **Hide App if no messages** - If selected the App will be hidden if there are no messages to show\n\n### Step 4\n\nDone.\n\n*NOTE: As Zendesk Administrator you will be able to see the App at Nav bar. This will give you settings preview. Agents are unable to see the App at Nav bar location.*",
+    "parameters": {
+      "tags_config": {
+        "label": "JSON для настройки тегов и сообщений",
+        "helpText": "Проверьте секцию настройки приложения для инструкций по настройке"
+      },
+      "show_popup": {
+        "label": "Показывать уведомление",
+        "helpText": "Если выбрано Приложение будет показыать уведомление в правом верхнем углу экрана со статисткой сообщений."
+      },
+      "hide_disclaimer": {
+        "label": "Скрыть знако вопроса",
+        "helpText": "Если выбарно Приложение будет скрывать маленький знако вопроса справа внизу"
+      },
+      "hide_if_no_messages": {
+        "label": "Скрыть если нет сообщений",
+        "helpText": "Если выбарно Приложение будет скрыто если нет сообщений"
+      }
+  	}
+  }
+}

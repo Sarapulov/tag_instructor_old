@@ -1,0 +1,29 @@
+{
+  "ui": {
+    "agent": "You",
+    "user": "User",
+    "organization": "Organization",
+    "ticket": "Ticket",
+    "ticket_requester": "Ticket Requester",
+    "ticket_assignee": "Ticket Assignee",
+    "ticket_organization": "Ticket Organization",
+    "ticket_collaborators": "Ticket CCs"
+  },
+  "admin":{
+    "settins_preview":"Settings preview",
+    "settings_description":"This is current App configuration. To change the settings navigate to the App settings page"
+  },
+  "error": {
+    "unable_to_parse_json": "Unable to parse JSON settings for tags. It may be missing or broken. Check the app settings and valiate you JSON. If error message stays contact Zendesk administrator."
+  },
+  "notification":{
+    "message_1":"You have: ",
+    "notice":"Message(s)",
+    "alert":"Alerts(s)",
+    "error":"Error(s)",
+    "message_2":"Check",
+    "app":"App",
+    "message_3":"for more details"
+  },
+  "deflection_message": "This is a Zendesk Labs App. Zendesk Labs is a testing ground for experimental software applications that are in various stages of development. The software may change, break, or disappear at any time. While Zendesk does not support Zendesk Labs Apps, their creators may be able to help. The best way to contact the original developer is by creating a github issue in the App's repository."
+}

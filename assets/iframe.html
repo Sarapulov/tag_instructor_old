@@ -1,0 +1,65 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/@zendeskgarden/css-utilities@3.0.2,npm/@zendeskgarden/css-tags@4.0.5,npm/@zendeskgarden/css-callouts@3.0.5,npm/@zendeskgarden/css-buttons@6.0.5,npm/@zendeskgarden/css-bedrock@7.0.5">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <div id="app" style="display:none;">
+    <!-- Nav bar begin -->
+    <div v-if="isNavBar" class="u-p-sm">
+      <h3 class="u-mt-xs u-semibold">
+        {{i18n.admin.settins_preview}}
+      </h3>
+      <small class="c-txt__hint">
+        {{i18n.admin.settings_description}}
+      </small>
+      <pre class="u-m-sm">
+        {{ currentTagsConfig | pretifyJson }}
+      </pre>
+    </div>
+    <!-- Nav bar end -->
+    <div v-else>
+      <!-- Show messages begin -->
+      <div v-if="hasMessages">
+        <div v-for="(messages, section) in currentMessages"
+             v-if="messages.length">
+          <h3 class="u-mt-xs u-semibold">
+            <div class="c-tag c-tag--round"><span>{{messages.length}}</span></div> {{i18n.ui[section]}}
+          </h3>
+          <ul>
+            <li v-for="(message, index) in messages" class="u-mt-xs">
+              <div class="c-callout u-p-sm"
+                   v-bind:style="message.css"
+                   v-bind:class="message.kind">
+                    <p class="c-callout__paragraph u-m-xxs-" v-html="message.message"></p>
+              </div>
+
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- Show messages end -->
+      <!-- No messages begin -->
+      <div  v-else
+            class="empty_messages">
+        <img src="img/empty-battery.svg">
+      </div>
+      <!-- No messages end -->
+      <!-- Disclaimer modal begin -->
+      <p v-if="isModal">
+        {{i18n.deflection_message}}
+      </p>
+      <a v-if="(!isModal && !metadata.settings.hide_disclaimer)"
+        @click="showDeflectionModal"
+        class="u-mt-sm u-ta-right u-display-inline-block u-2/2">
+        <img class="c-btn__icon get_help" src="img/q.svg">
+      </a>
+      <!-- Disclaimer modal end -->
+    </div>
+  <div>
+  <script src="https://cdn.jsdelivr.net/combine/npm/vue@2.5.17,npm/underscore@1.9.1,npm/es6-promise@4.2.5,npm/jquery-ajax@2.1.4"></script>
+  <script type="text/javascript" src="https://assets.zendesk.com/apps/sdk/2.0/zaf_sdk.js"></script>
+  <script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>
